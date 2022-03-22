@@ -1,0 +1,20 @@
+.MODEL SMALL
+.STACK 100H
+.DATA
+ VAR DB 'HELLO WORLD$'
+.CODE
+MAIN PROC
+    MOV AX,@DATA
+    MOV DS,AX 
+    NUM:
+    LEA DX,VAR
+    MOV AH,9
+    INT 21H
+    
+    JMP NUM
+    
+    MOV AH,4CH
+    INT 21H
+    
+    MAIN ENDP
+END MAIN
